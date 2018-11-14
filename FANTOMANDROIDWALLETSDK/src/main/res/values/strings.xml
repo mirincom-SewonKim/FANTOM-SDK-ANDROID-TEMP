@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FANTOM-ANDROID-WALLET-SDK</string>
+
+    <string name="fantomwallet_domain">mirincom.dyndns.org:51900</string>
+</resources>
