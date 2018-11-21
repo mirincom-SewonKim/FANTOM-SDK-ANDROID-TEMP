@@ -258,8 +258,8 @@ public class FantomDefine {
         public static final String fantom_api_0012 = "/wallet/api/1.0/reward";
         public static final String fantom_api_0013 = "/wallet/api/1.0/payCancel";
         public static final String fantom_api_0014 = "/wallet/api/1.0/rewardCancel";
-        public static final String fantom_api_0015 = "/wallet/api/1.0/userLogin";
-        public static final String fantom_api_0016 = "/wallet/api/1.0/userHoding";
+        public static final String fantom_api_0015 = "/wallet/api/1.0/login";
+        public static final String fantom_api_0016 = "/wallet/api/1.0/userHolding";
         public static final String fantom_api_0017 = "/wallet/api/1.0/userWalletAddr";
         public static final String fantom_api_0018 = "/wallet/api/1.0/coinTransfer";
         public static final String fantom_api_0019 = "/wallet/api/1.0/coinConvert";

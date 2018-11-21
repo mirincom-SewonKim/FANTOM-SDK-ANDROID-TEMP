@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.sdk.wallet.foundation.fantom.com.fantom_android_wallet_sdk.FantomDefine.interfaceType;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -772,8 +775,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     public void onClick(View view) {
                                         FantomObject fantomObject = new FantomObject();
                                         try {
+
+                                            String password = etUPWD015.getText().toString();
+
+                                            try {
+                                                MessageDigest sh = MessageDigest.getInstance("SHA-256");
+                                                sh.update(password.getBytes());
+                                                byte byteData[] = sh.digest();
+                                                StringBuffer sb = new StringBuffer();
+                                                for(int i = 0 ; i < byteData.length ; i++){
+                                                    sb.append(Integer.toString((byteData[i]&0xff) + 0x100, 16).substring(1));
+                                                }
+                                                password = sb.toString();
+                                            }catch(NoSuchAlgorithmException e){
+                                                e.printStackTrace();
+                                                password = null;
+                                            }
+
                                             fantomObject.put("userId", etUID015.getText().toString());
-                                            fantomObject.put("userPw", etUPWD015.getText().toString());
+                                            fantomObject.put("userPw", password);
                                             fantomObject.put("reqDate", getCurrentDate());
                                         }catch(Exception e) {
 
